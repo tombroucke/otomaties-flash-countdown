@@ -6,7 +6,7 @@
  * Author URI:      https://tombroucke.be
  * Text Domain:     flash-countdown
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         1.0.0
  *
  * @package         Control
  */
