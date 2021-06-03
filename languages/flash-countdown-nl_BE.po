@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: Flash Countdown\n"
+"POT-Creation-Date: 2019-10-08 21:05+0200\n"
+"PO-Revision-Date: 2019-10-08 21:06+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: flash-countdown.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: nl_NL\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: flash-countdown.php:51
+msgid "day"
+msgstr "dag"
+
+#: flash-countdown.php:52
+msgid "days"
+msgstr "dagen"
+
+#: flash-countdown.php:53
+msgid "week"
+msgstr "week"
+
+#: flash-countdown.php:54
+msgid "weeks"
+msgstr "weken"
+
+#: includes/class-admin.php:11
+msgid "Flash countdown"
+msgstr "Flash Countdown"
+
+#: includes/class-admin.php:24
+msgid "Flash message enabled"
+msgstr "Flashbericht ingeschakeld"
+
+#: includes/class-admin.php:38
+msgid "Background Color"
+msgstr "Achtergrondkleur"
+
+#: includes/class-admin.php:52
+msgid "Text Color"
+msgstr "Tekstkleur"
+
+#: includes/class-admin.php:66
+msgid "Flash message"
+msgstr "Flashbericht"
+
+#: includes/class-admin.php:68
+msgid "Use the [flash_message_countdown] shortcode to display the countdown"
+msgstr ""
+"Gebruik de [flash_message_countdown] shortcode om de countdown weer te "
+"geven"
+
+#: includes/class-admin.php:81
+msgid "Count down to"
+msgstr "Tel af naar"
+
+#. Plugin Name of the plugin/theme
+msgid "Flash Countdown"
+msgstr "Flash Countdown"
+
+#. Description of the plugin/theme
+msgid ""
+"Add a message at the top of your website with a countdown. Add "
+"[flash_message] right after the opening body tag."
+msgstr ""
+"Voeg een bericht toe aan uw website met een countdown. Voeg "
+"[flash_message] toe direct na de opening body tag."
+
+#. Author of the plugin/theme
+msgid "Tom Broucke"
+msgstr "Tom Broucke"
+
+#. Author URI of the plugin/theme
+msgid "https://tombroucke.be"
+msgstr "https://tombroucke.be"

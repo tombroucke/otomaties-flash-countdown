@@ -1,0 +1,10 @@
+{
+    "name": "tombroucke/otomaties-flash-countdown",
+    "authors": [
+        {
+            "name": "Tom Broucke",
+            "email": "tom@tombroucke.be"
+        }
+    ],
+    "require": {}
+}
