@@ -1,0 +1,90 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WordPress Plugin Boilerplate\n"
+"POT-Creation-Date: 2021-11-04 20:52+0100\n"
+"PO-Revision-Date: 2021-11-04 20:49+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: otomaties-flash-countdown.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+
+#: app/Admin.php:91
+msgid "Flash countdown"
+msgstr ""
+
+#: app/Admin.php:104
+msgid "Flash message enabled"
+msgstr ""
+
+#: app/Admin.php:118
+msgid "Background Color"
+msgstr ""
+
+#: app/Admin.php:132
+msgid "Text Color"
+msgstr ""
+
+#: app/Admin.php:146
+msgid "Flash message"
+msgstr ""
+
+#: app/Admin.php:148
+msgid "Use the [flash_message_countdown] shortcode to display the countdown"
+msgstr ""
+
+#: app/Admin.php:161
+msgid "Count down to"
+msgstr ""
+
+#: app/Frontend.php:90
+msgid "day"
+msgstr ""
+
+#: app/Frontend.php:91
+msgid "days"
+msgstr ""
+
+#: app/Frontend.php:92
+msgid "week"
+msgstr ""
+
+#: app/Frontend.php:93
+msgid "weeks"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Otomaties Flash Countdown"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/tombroucke/otomaties-flash-countdown"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Add a message at the top of your website with a countdown. Add <?php "
+"do_action('flash_message'); ?> right after the opening body tag."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Tom Broucke"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://tombroucke.be/"
+msgstr ""

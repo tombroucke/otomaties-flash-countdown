@@ -1,5 +1,5 @@
 <?php
-namespace Otomaties\FlashCountdown;
+namespace Otomaties\FlashCountdown\Models;
 
 /**
  * Flash message object
@@ -24,7 +24,7 @@ class FlashMessage
 
     public function enabled()
     {
-		$now = new \DateTime();
+        $now = new \DateTime();
         if (!$this->value('enabled') || $now > $this->dateTime(false)) {
             return false;
         }
@@ -35,7 +35,7 @@ class FlashMessage
      * Get flash message background color
      * @return string
      */
-    public function background_color()
+    public function backgroundColor()
     {
         return $this->value('background_color');
     }
@@ -44,7 +44,7 @@ class FlashMessage
      * Get flash message text color
      * @return string
      */
-    public function text_color()
+    public function textColor()
     {
         return $this->value('text_color');
     }
