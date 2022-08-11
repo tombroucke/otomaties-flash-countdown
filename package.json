@@ -10,13 +10,13 @@
   "author": "Tom Broucke <tom@tombroucke.be>",
   "license": "MIT",
   "dependencies": {
+    "countdown": "^2.6.0",
     "stylelint": "^14.0.1"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^7.1.1",
     "browser-sync": "^2.27.7",
     "browser-sync-webpack-plugin": "^2.3.0",
-    "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.5.1",
     "glob": "^7.2.0",
     "mini-css-extract-plugin": "^2.4.4",

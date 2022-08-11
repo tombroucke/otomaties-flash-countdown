@@ -1,45 +1,51 @@
 export default class Countdown {
-	constructor(el) {
+	constructor(el, banner) {
 		this.el = el;
-		this.countdown_to = this.el.data('countdown-to');
+		this.banner = banner;
 		this.initialized = false;
-		this.init();
+		this.timer = false;
+
+        this._second = 1000;
+        this._minute = this._second * 60;
+        this._hour = this._minute * 60;
+        this.countDownTo = new Date(this.el.getAttribute('data-countdown-to'));
+        this._day = this._hour * 24;
+		this.initCountdown();
 	}
 
-	init() {
-		const countdown = this;
-		this.countdown = this.el.countdown(this.countdown_to)
-		.on('update.countdown', function(event) {
-			var format = '%H:%M:%S';
-			if(event.offset.totalDays > 0) {
-				format = '%-d day%!d ' + format;
-			}
-			if(event.offset.weeks > 0) {
-				format = '%-w week%!w ' + format;
-			}
-			var time = event.strftime(format);
-			jQuery.each(countdown.translations(), function(index, el) {
-				time = time.replace(index, el);
-			});
-			jQuery(this).html(time);
-			
-			if (!this.initialized) {
-				const initializedEvent = new CustomEvent('countdownInitialized');
-				window.dispatchEvent(initializedEvent);
-				this.initialized = true;
-			}
-		})
-		.on('finish.countdown', function(event) {
-			jQuery(this).parent().parent().slideUp();
-		});
+	initCountdown() {
+        this.timer = setInterval(this.showRemaining.bind(this), 1000);
 	}
 
-	translations() {
-		return {
-			'day ': flash_countdown_vars.strings.day + ' ',
-			'days ': flash_countdown_vars.strings.days + ' ',
-			'week ': flash_countdown_vars.strings.week + ' ',
-			'weeks ': flash_countdown_vars.strings.weeks + ' ',
+	showRemaining() {
+		var now = new Date();
+		var timeRemaining = this.countDownTo - now;
+		if (timeRemaining <= 0) {
+
+			clearInterval(this.timer);
+			this.banner.remove();
+
+			return;
 		}
+		var days = Math.floor(timeRemaining / this._day);
+		var hours = Math.floor((timeRemaining % this._day) / this._hour);
+		var minutes = Math.floor((timeRemaining % this._hour) / this._minute);
+		var seconds = Math.floor((timeRemaining % this._minute) / this._second);
+
+		this.el.innerHTML = '';
+		if (days > 0) {
+			this.el.innerHTML += days + ' ' + this.pluralize(flash_countdown_vars.strings.day, flash_countdown_vars.strings.days, days) + ' ';
+		}
+		this.el.innerHTML += hours + ':' + this.pad(minutes, 2) + ':' + this.pad(seconds, 2);
+	}
+
+	pad(num, size) {
+		num = num.toString();
+		while (num.length < size) num = "0" + num;
+		return num;
+	}
+
+	pluralize(singular, plural, amount) {
+		return amount == 1 ? singular : plural;
 	}
 }

@@ -6,13 +6,10 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
-
 
 module.exports = (env, argv) => ({
 	entry: {
 		main: './assets/js/main.js',
-		admin: './assets/js/admin.js',
 	},
 	output: {
 		path: __dirname + '/public',
@@ -91,19 +88,11 @@ module.exports = (env, argv) => ({
 	}),
 	new BrowserSyncPlugin({
 		port: 3000,
-		proxy: 'https://de-ingang.local',
+		proxy: 'https://website.local',
 	}),
 	new StyleLintPlugin({
 		failOnError: argv.mode === 'production' ? true : false,
 	}),
-    new CopyPlugin({
-      patterns: [
-        { from: 'assets/js/jquery.countdown.min.js', to: 'js' },
-      ],
-      options: {
-        concurrency: 100,
-      },
-    }),
 	],
 	externals: {
 		jquery: 'jQuery'

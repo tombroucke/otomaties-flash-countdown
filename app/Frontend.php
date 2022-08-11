@@ -83,14 +83,11 @@ class Frontend
          * class.
          */
         
-        wp_enqueue_script('jquery.countdown', plugins_url('public/js/jquery.countdown.min.js', dirname(__FILE__)), array( 'jquery' ), null);
-        wp_enqueue_script($this->pluginName, Assets::find('js/main.js'), array( 'jquery.countdown', 'jquery' ), null);
+        wp_enqueue_script($this->pluginName, Assets::find('js/main.js'));
         wp_localize_script($this->pluginName, 'flash_countdown_vars', array(
             'strings' => array(
                 'day' => __('day', 'otomaties-flash-countdown'),
                 'days' => __('days', 'otomaties-flash-countdown'),
-                'week' => __('week', 'otomaties-flash-countdown'),
-                'weeks' => __('weeks', 'otomaties-flash-countdown'),
             )
         ));
     }/**
@@ -106,7 +103,7 @@ class Frontend
         }
         ?>
         <?php do_action('before_flash_message'); ?>
-        <div class="flash-message text-center" style="background-color: <?php echo $message->backgroundColor(); ?>">
+        <div class="flash-message" style="background-color: <?php echo $message->backgroundColor(); ?>">
             <div class="container">
                 <?php do_action('before_flash_message_content'); ?>
                 <div class="flash-message__content" style="color: <?php echo $message->textColor(); ?>;">

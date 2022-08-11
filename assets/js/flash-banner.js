@@ -1,45 +1,62 @@
 export default class FlashBanner {
 	constructor(el){
-	  this.el = jQuery(el);
-	  this.bindEvents();
-	  this.type = 'static';
-	  this.maybeConvert();
-	  this.init();
-	}
-  
-	init() {
-	  this.el.addClass('initialized');
-	}
-  
-	bindEvents() {
-	  jQuery(window).on('resize', this.maybeConvert.bind(this));
-	  window.addEventListener('countdownInitialized', this.maybeConvert.bind(this));
-	}
-  
-	maybeConvert() {
-	  const originalBanner = this.el;
-	  let newBanner;
-	  let change = false;
-	  const content = document.querySelector('.flash-message__content');
-	  if(this.isOverflown(content) && this.type == 'static') {
-		newBanner = jQuery('<marquee class="flash-message--dynamic ' + originalBanner[0].getAttribute('class') + '" style="' + originalBanner[0].getAttribute('style') + '">' + originalBanner[0].innerHTML + '</marquee>');
-		this.type = 'dynamic';
-		change = true;
-	  } else if(!this.isOverflown(content) && this.type == 'dynamic') {
-		newBanner = jQuery('<div class="flash-message--static ' + originalBanner[0].getAttribute('class') + '" style="' + originalBanner[0].getAttribute('style') + '">' + originalBanner[0].innerHTML + '</div>');
+		this.el = el;
+		this.bindEvents();
 		this.type = 'static';
-		change = true;
-	  }
-  
-	  if(change) {
-		originalBanner.after(newBanner)
-		originalBanner.remove();
-		this.el = newBanner;
-	  }
+		this.maybeConvert();
+		this.init();
 	}
+	
+	init() {
+		this.el.classList.add('initialized');
+	}
+	
+	bindEvents() {
+		window.addEventListener('resize', this.maybeConvert.bind(this));
+		window.addEventListener('countdownInitialized', this.maybeConvert.bind(this));
+	}
+	
+	maybeConvert() {
+		let newBanner = false;
+		const originalBanner = this.el;
+		const content = document.querySelector('.flash-message__content');
+		const isOverflown = this.isOverflown(content);
+		
+		if(isOverflown && this.type == 'static') {
+			newBanner = this.convertTo('dynamic')
+		} else if(!isOverflown && this.type == 'dynamic') {
+			newBanner = this.convertTo('static')
+		}
+		
+		if(newBanner) {
+			originalBanner.parentNode.insertBefore(newBanner, originalBanner.nextSibling);
+			originalBanner.remove();
+			this.el = newBanner;
+		}
+	}
+	
+	convertTo(type) {
+		this.type = type;
+		const nodeType = type == 'dynamic' ? 'marquee' : 'div';
+		return this.createBanner(nodeType, this.el);
+	}
+	
+	createBanner(nodeType, originalBanner) {
+		const classes = originalBanner.getAttribute('class').split(' ');
+		let newBanner = document.createElement(nodeType);
+		
+		for (let index = 0; index < classes.length; index++) {
+			const className = classes[index];
+			newBanner.classList.add(className);
+		}
 
+		newBanner.setAttribute('style', originalBanner.getAttribute('style'));
+		newBanner.innerHTML = originalBanner.innerHTML;
+		
+		return newBanner;
+	}
+	
 	isOverflown(element) {
 		return element.scrollHeight > element.clientHeight || element.scrollWidth > element.clientWidth;
 	}
-  }
-  
+}

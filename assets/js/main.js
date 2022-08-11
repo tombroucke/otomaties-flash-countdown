@@ -1,16 +1,16 @@
 import '../scss/main.scss';
 
-import Countdown from './countdown';
 import FlashBanner from './flash-banner';
+import Countdown from './countdown';
 
-jQuery(document).ready(function($){ 
-	const countdownEl = $('.flash-message__countdown');
-	if(countdownEl.length) {
-		new Countdown(countdownEl);
+document.addEventListener('DOMContentLoaded', () => {
+	const flashMessageEl = document.querySelector('.flash-message');
+	if(flashMessageEl) {
+		new FlashBanner(flashMessageEl);
 	}
 
-	const flashMessageEl = $('.flash-message');
-	if(flashMessageEl.length) {
-		new FlashBanner(flashMessageEl);
+	const countdownEl = document.querySelector('.flash-message__countdown');
+	if(countdownEl && flashMessageEl) {
+		new Countdown(countdownEl, flashMessageEl);
 	}
 });
