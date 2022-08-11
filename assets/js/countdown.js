@@ -37,6 +37,12 @@ export default class Countdown {
 			this.el.innerHTML += days + ' ' + this.pluralize(flash_countdown_vars.strings.day, flash_countdown_vars.strings.days, days) + ' ';
 		}
 		this.el.innerHTML += hours + ':' + this.pad(minutes, 2) + ':' + this.pad(seconds, 2);
+			
+		if (!this.initialized) {
+			const initializedEvent = new CustomEvent('countdownInitialized');
+			window.dispatchEvent(initializedEvent);
+			this.initialized = true;
+		}
 	}
 
 	pad(num, size) {
