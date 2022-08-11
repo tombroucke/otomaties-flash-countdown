@@ -6,7 +6,7 @@ namespace Otomaties\FlashCountdown;
  * Plugin Name:       Otomaties Flash Countdown
  * Description:       Add a message at the top of your website with a countdown. Add &lt;?php do_action('flash_message'); ?&gt; right after the opening body tag.
  * Plugin URI:        https://github.com/tombroucke/otomaties-flash-countdown
- * Version:           2.0.2
+ * Version:           
  * Author:            Tom Broucke
  * Author URI:        http://tombroucke.be/
  * License:           GPL-2.0+
