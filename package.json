@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "countdown": "^2.6.0",
-    "stylelint": "^14.0.1"
+    "stylelint": "^16.6.1"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^7.1.1",
